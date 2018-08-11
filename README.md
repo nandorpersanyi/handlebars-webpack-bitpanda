@@ -1,6 +1,6 @@
 # Handlebars (4) with Webpack (4): Example App for Bitpanda
 
-## Build & development
+## Development
 1. install dev dependencies
 `npm install`
 
@@ -9,7 +9,7 @@
 
 3. open http://localhost:8080
 
-## Only build
+## Build
 1. builds to /dist folder
 `npm run build`
 
