@@ -1,0 +1,21 @@
+<div id="crypto-list">
+<div id="crypto-list-inner">
+  <ul>
+    {{#each coinData}}
+      <li onclick="getElementById('coin-details-{{coinId}}').classList.toggle('display')">
+	    <span class="coin-name">{{coinName}}</span>
+        <span class="coin-symbol">({{coinSymbol}})</span>
+        <div id="coin-details-{{coinId}}" class="coin-details">
+        	<div class="coin-details-inner">
+        		<span class="coin-details-close"><strong>X</strong></span>
+          		<img src="https://s2.coinmarketcap.com/static/img/coins/16x16/{{coinId}}.png">
+          		<span class="coin-details-data">Circulating supply: <strong>{{circulatingSupply}}</strong></span>
+          		<span class="coin-details-data">Total supply: <strong>{{totalSupply}}</strong></span>
+          		<span class="coin-details-data">Max supply: <strong>{{maxSupply}}</strong></span>
+          	</div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>	
+</div>
+</div>

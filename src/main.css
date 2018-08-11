@@ -1,0 +1,75 @@
+#crypto-list-inner{
+	text-align: center;
+    width: 500px;
+    margin: 0px auto;
+}
+#crypto-list-inner ul{
+	list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+#crypto-list-inner li{
+	padding: 12px;
+    border: 1px solid;
+    margin: 6px;
+    cursor: pointer;
+}
+#crypto-list-inner li:hover{
+	background: #000;
+    color: #fff;
+}
+.coin-details{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+    left: 0px;
+    top: 0px;
+	background-color:rgba(0, 0, 0, 0.5);
+}
+.coin-details-inner{
+	position: fixed;
+	width: 500px;
+	left: 50%;
+    margin-left: -250px;
+    top: 100px;
+    background: #fff;
+    padding: 12px 0px;
+    border: 1px solid;
+    color: #000;
+}
+.coin-details-close{
+	position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 5px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    font-size: 1em;
+    border: 1px solid;
+    margin: 5px;
+}
+.coin-details-close:hover{
+	background: #000;
+    color: #fff;
+}
+.coin-details-data{
+	display: block;
+    margin: 10px;
+}
+.display{
+	display: block;
+}
+
+@media (max-width:768px) {
+	#crypto-list-inner{
+	    width: 100%;
+	}
+	div.coin-details-inner{
+		width: 90%;
+    	left: 5% !important;
+		left: inherit;
+	    margin-left: inherit;
+	    top: 20px;
+	}
+}
