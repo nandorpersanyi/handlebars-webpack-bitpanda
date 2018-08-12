@@ -18,22 +18,27 @@ function checkStatus(response) {
 function toJson(response) {
   return response.json()
 }
+function prettyNums(uglyNumber) {
+  return uglyNumber > 0 ? uglyNumber.toLocaleString('en') : '-';
+}
 // transform coinMCap API data
 function transformCoinMCapData(coinMCapData) {
   // create new array with IDs
   const coinMCapDataIds = Object.keys(coinMCapData.data);
-  // 1. return object: create parent property "coinData" 2. map() coinMCapDataIds and select needed data from original object by mapped ID 3. pipe the result of map() through sort() to sort list by coin rank
-  return { coinData: coinMCapDataIds.map(id => ({
+  // 1. create parent property "coinData" 2. map() coinMCapDataIds and select needed data from original object by mapped ID 3. pipe the result of map() through sort() to sort list by coin rank
+  const transformedData = {
+    coinData: coinMCapDataIds.map(id => ({
       coinName : coinMCapData.data[id].name,
       coinSymbol: coinMCapData.data[id].symbol,
       coinImg: `https://s2.coinmarketcap.com/static/img/coins/16x16/${id}.png`,
-      circulatingSupply: coinMCapData.data[id].circulating_supply.toLocaleString('en'),
-      totalSupply: coinMCapData.data[id].total_supply.toLocaleString('en'),
-      maxSupply: coinMCapData.data[id].max_supply/*.toLocaleString('en')*/,
+      circulatingSupply: prettyNums(coinMCapData.data[id].circulating_supply),
+      totalSupply: prettyNums(coinMCapData.data[id].total_supply),
+      maxSupply: prettyNums(coinMCapData.data[id].max_supply),
       rank: coinMCapData.data[id].rank,
       coinId: id
-    })).sort(function (a, b) { return a.rank - b.rank; })
-  }
+      })).sort(function (a, b) { return a.rank - b.rank; })
+  };
+  return transformedData;
 }
 // pass data to Handlebars template
 function createList(coinMCapData) {
